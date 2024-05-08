@@ -25,7 +25,7 @@ function App() {
     try {
       const response = await fetch(apiUrl);
       if (!response.ok) {
-        throw new Error('Erro ao carregar os dados da API');
+        alert('Erro ao carregar os dados da API');
       }
       const jsonData = await response.json();
       setData(jsonData)
