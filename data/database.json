@@ -1,44 +1,19 @@
 {
   "itens": [
     {
-      "id": "5990",
-      "item": "as",
-      "valor": "11"
+      "id": "28d6",
+      "item": "Café",
+      "valor": "19"
     },
     {
-      "id": "af9d",
-      "item": "asasas",
-      "valor": "12"
+      "id": "f177",
+      "item": "Pão de forma ",
+      "valor": "8"
     },
     {
-      "id": "c738",
-      "item": "asas",
-      "valor": "65265"
-    },
-    {
-      "id": "ebfb",
-      "item": "sas",
-      "valor": "12"
-    },
-    {
-      "id": "6547",
-      "item": "asasasa",
-      "valor": "1111"
-    },
-    {
-      "id": "6233",
-      "item": "asasww",
-      "valor": "1122"
-    },
-    {
-      "id": "e318",
-      "item": "asasasasas",
-      "valor": "121"
-    },
-    {
-      "id": "621f",
-      "item": "asteste",
-      "valor": "11"
+      "id": "b06a",
+      "item": "Refrigerante",
+      "valor": "8"
     }
   ]
 }
