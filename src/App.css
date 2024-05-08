@@ -1,5 +1,6 @@
  .box-content {
    width: 100%;
+   min-height: 100vh;
  }
 
  .box-content__title {
@@ -15,6 +16,7 @@
  }
 
  .box-content__list {
+   padding: 0;
    display: flex;
    position: relative;
    flex-direction: column;
@@ -87,5 +89,4 @@
  .box-content__list-item {
    list-style-type: none;
    position: relative;
- } 
-
+ }
