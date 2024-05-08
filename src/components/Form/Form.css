@@ -1,0 +1,17 @@
+.box-form__buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.box-form__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 22px;
+}
+
+.box-form__button-clear {
+    background-color: white;
+    color: black;
+}
