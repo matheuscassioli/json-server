@@ -28,11 +28,16 @@ function App() {
         throw new Error('Erro ao carregar os dados da API');
       }
       const jsonData = await response.json();
-      setData(jsonData)
+
+      console.log('seta data', jsonData)
+
+      console.log([jsonData])
+
+      setData([jsonData])
 
       setTimeout(() => {
         setLoading(false)
-      }, 1500)
+      }, 5000)
 
     } catch (error) {
       alert('Erro ao carregar os dados da API:', error);
@@ -46,15 +51,16 @@ function App() {
 
     let obj = {
       item,
-      valor
+      valor,
+      id: data.length ? data.length + 1 : 1
     }
 
-    if (data.some(existingItem => existingItem.item === item)) {
-      setLoadingUpper(false)
-      handleAlert('Este item já está na lista.');
-      captureList(e, false)
-      return;
-    }
+    // if (data.some(existingItem => existingItem.item === item)) {
+    //   setLoadingUpper(false)
+    //   handleAlert('Este item já está na lista.');
+    //   captureList(e, false)
+    //   return;
+    // }
 
     if (!item || !valor || regexNumbers.test(item)) {
       setLoadingUpper(false)
@@ -64,7 +70,7 @@ function App() {
     }
 
     const res = await fetch(apiUrl, {
-      method: 'POST',
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -122,6 +128,7 @@ function App() {
             <span className="bold">Item:</span> {data[item].item} - <span className="bold"> Valor:</span> {data[item].valor}
             <button className="box-content__list-button" onClick={(e) => removeItem(e, data[item].id)}><GrFormClose size={18} /></button>
           </li>
+
         )}
 
         {!loading && data.length == 0 && <div className="box-content__void-list">Não há itens <PiSmileySadThin size={24} /></div>}

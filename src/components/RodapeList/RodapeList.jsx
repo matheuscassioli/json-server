@@ -10,7 +10,7 @@ const RodapeList = ({ className, data }) => {
     return (
         <div className={className}>
             <span><span className="bold">itens:</span> {data.length}</span>
-            <span><span className="bold">soma:</span> {returnSomeValue()}</span>
+            {/* <span><span className="bold">soma:</span> {returnSomeValue()}</span> */}
         </div>
     )
 }
