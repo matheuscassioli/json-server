@@ -8,7 +8,7 @@ import RodapeList from "./components/RodapeList/RodapeList";
 import Form from "./components/Form/Form";
 
 function App() {
-  const apiUrl = "http://localhost:3000/itens"
+  const apiUrl = "https://json-server-matheus.s3.sa-east-1.amazonaws.com/database.json"
   const [data, setData] = useState('')
   const [item, setItem] = useState('')
   const [valor, setValor] = useState('')

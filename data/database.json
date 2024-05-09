@@ -1,19 +1,19 @@
 {
   "itens": [
     {
-      "id": "28d6",
-      "item": "Café",
-      "valor": "19"
-    },
-    {
-      "id": "f177",
-      "item": "Pão de forma ",
-      "valor": "8"
-    },
-    {
       "id": "b06a",
       "item": "Refrigerante",
       "valor": "8"
+    },
+    {
+      "id": "38b1",
+      "item": "asasas",
+      "valor": "11"
+    },
+    {
+      "id": "e2c4",
+      "item": "dad",
+      "valor": "1"
     }
   ]
 }
