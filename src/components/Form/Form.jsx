@@ -1,6 +1,6 @@
-import "./Form.css"
 import React from 'react'
 import ReactLoading from 'react-loading';
+import "./Form.css"
 
 const Form = ({ sendItem, setItem, setValor, className, item, valor, loading }) => {
 

@@ -1,19 +1,14 @@
 {
   "itens": [
     {
-      "id": "b06a",
-      "item": "Refrigerante",
-      "valor": "8"
-    },
-    {
-      "id": "38b1",
-      "item": "asasas",
+      "id": "3",
+      "item": "tenid",
       "valor": "11"
     },
     {
-      "id": "e2c4",
-      "item": "dad",
-      "valor": "1"
+      "id": 2,
+      "item": "tenis",
+      "valor": "245"
     }
   ]
 }

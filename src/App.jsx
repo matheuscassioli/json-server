@@ -8,7 +8,9 @@ import RodapeList from "./components/RodapeList/RodapeList";
 import Form from "./components/Form/Form";
 
 function App() {
-  const apiUrl = "https://json-server-matheus.s3.sa-east-1.amazonaws.com/database.json"
+
+  const apiUrl = "http://localhost:3000/itens"
+
   const [data, setData] = useState('')
   const [item, setItem] = useState('')
   const [valor, setValor] = useState('')
@@ -23,22 +25,13 @@ function App() {
 
   const requestItensAPI = async () => {
     try {
-      const response = await fetch(apiUrl);
+      const response = await fetch(`${apiUrl}`);
       if (!response.ok) {
         throw new Error('Erro ao carregar os dados da API');
       }
       const jsonData = await response.json();
-
-      console.log('seta data', jsonData)
-
-      console.log([jsonData])
-
-      setData([jsonData])
-
-      setTimeout(() => {
-        setLoading(false)
-      }, 5000)
-
+      setData(jsonData);
+      setLoading(false);
     } catch (error) {
       alert('Erro ao carregar os dados da API:', error);
     }
@@ -70,7 +63,7 @@ function App() {
     }
 
     const res = await fetch(apiUrl, {
-      method: 'PUT',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -91,24 +84,24 @@ function App() {
   }
 
   const removeItem = async (e, id) => {
-    e.preventDefault(e)
-    const res = await fetch(`${apiUrl}/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    })
-
-    let newObj = await res.json()
-
-    let newArray = []
-    Object.keys(data).map(item => {
-      if (data[item].id != newObj.id) {
-        newArray.push(data[item])
+    e.preventDefault();
+    try {
+      const response = await fetch(`${apiUrl}/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error('Erro ao deletar o item');
       }
-    })
-    setData(newArray)
-  }
+   
+      setData(prevData => prevData.filter(item => item.id !== id));
+    } catch (error) {
+      alert('Erro ao deletar o item: ' + error.message);
+    }
+  };
 
   return (
     < div className='box-content' >
@@ -123,11 +116,12 @@ function App() {
 
         {(loading || loadingUpper) && <ReactLoading type={"spin"} color={"#fff"} className="box-content__loading" height={45} width={45} />}
 
-        {!loading && data.length > 0 && Object.keys(data).map(item =>
-          <li className="box-content__list-item" key={data[item].id}>
+        {!loading && data.length > 0 && Object.keys(data).map(item => {
+          return <li className="box-content__list-item" key={data[item].id + '1'}>
             <span className="bold">Item:</span> {data[item].item} - <span className="bold"> Valor:</span> {data[item].valor}
             <button className="box-content__list-button" onClick={(e) => removeItem(e, data[item].id)}><GrFormClose size={18} /></button>
           </li>
+        }
 
         )}
 
