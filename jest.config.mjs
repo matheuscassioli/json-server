@@ -14,8 +14,9 @@ const config = {
   },
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
-  },
-  testEnvironment: 'jsdom', // Certifique-se de que o ambiente de teste é jsdom
+  }, 
+  testEnvironment: 'jsdom', // Explicitly use jest-environment-jsdom, 
+  setupFilesAfterEnv: [],
 };
 
 export default config;
